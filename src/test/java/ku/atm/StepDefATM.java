@@ -1,3 +1,4 @@
+// Jirapa Wongsuwon 6410450761
 package ku.atm;
 
 import io.cucumber.java.Before;
@@ -70,4 +71,14 @@ public class StepDefATM {
                      bank.getCustomer(id).getAccount().getBalance());
     }
 
+    @When("I deposit {float} to my account")
+    public  void i_deposit_to_my_account_id(double amount) {
+        atm.deposit(amount);
+    }
+
+    @Then("I doposit {float}")
+    public void i_deposit(double balance) {
+        assertEquals(balance,
+                atm.getBalance());
+    }
 }
