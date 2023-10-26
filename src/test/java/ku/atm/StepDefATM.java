@@ -75,10 +75,9 @@ public class StepDefATM {
     public  void i_deposit_to_my_account_id(double amount) {
         atm.deposit(amount);
     }
-
-    @Then("I doposit {float}")
-    public void i_deposit(double balance) {
-        assertEquals(balance,
-                atm.getBalance());
+    @Then("Deposit {float} to my account")
+    public void depositMoney(double balance) {
+        assertEquals(balance, atm.getBalance());
+        assertTrue(atm.getBalance() > 0);
     }
 }
